@@ -2,6 +2,10 @@ import java.util.ArrayList;
 
 public class Position {
 
+    public int getCaseNumber() {
+        return caseNumber;
+    }
+
     private int caseNumber = 0;
     public ArrayList<Integer> positions;
     public final int end=63;

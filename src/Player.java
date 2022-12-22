@@ -4,6 +4,9 @@ public class Player {
     public int numberOfPlays=0;
     public String name;
     public boolean canPlay;
+
+
+    private Position position = new Position(0);
     public ArrayList<Integer> history;
 
 
@@ -16,6 +19,10 @@ public class Player {
         /*ArrayList<Integer> history= new ArrayList<>();
         history.add(0,0);*/
 
+    }
+
+    public Position getPosition() {
+        return position;
     }
 
     public int getNumberOfPlays() {
@@ -54,4 +61,7 @@ public class Player {
         return this.history.get(index);
     }
 
+    public void setPosition(Position position) {
+        this.position = position;
+    }
 }

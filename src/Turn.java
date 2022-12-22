@@ -11,4 +11,10 @@ public class Turn {
     public void throwDice() {
         this.PlayerThrow = new RandomThrow();
     }
+
+    public void changePosition(){
+       int casePosition = player.getPosition().getCaseNumber() + PlayerThrow.getSumOfDices();
+       this.player.setPosition(new Position(casePosition));
+    }
+
 }
