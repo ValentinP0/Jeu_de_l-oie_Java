@@ -8,21 +8,27 @@ public class Main {
         Player one= new Player(0,"Toto",true,positionFirst);
         ArrayList<Integer> hist= one.history;
         System.out.println(hist);
-        int [] testableau= new int[2];
 
         RandomThrow randomjet= new RandomThrow();
         int jet1= randomjet.generate();
         int jet2 =randomjet.generate();
-        testableau=randomjet.getDices();
-        System.out.println(testableau[0]);
-        System.out.println(testableau[1]);
-        int sum=randomjet.sum(testableau);
+        int sum= randomjet.sum();
+        System.out.println(randomjet.getFirstDice());
+        System.out.println(randomjet.getSecondDice());
+
         System.out.println(sum);
 
 
         Board pos1=new Board();
         pos1.ShowCases();
-        pos1.showPosition(sum);
+
+        pos1.showPosition(randomjet.getSumOfDices());
+
+        boolean ongoing = true;
+
+        while(ongoing) {
+            Game game = new Game();
+        }
 
     }
 }
