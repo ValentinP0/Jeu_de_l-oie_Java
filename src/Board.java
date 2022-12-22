@@ -13,15 +13,19 @@ public class Board {
 
     public void showPosition(int index){
         for (int j=0;j<index;j++){
-            System.out.print("   ");
+            if(j<10) {
+                System.out.print("  ");
+            } else {
+                System.out.print("   ");
+            }
         }
         System.out.print("X");
 
 
     }
     public void ShowCases(){
-        for (int i=0;i<30;i++){
-            System.out.print(i+"  ");
+        for (int i=0;i<64;i++){
+            System.out.print(i+" ");
         }
         System.out.println();
     }

@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
 public class Main {
+
     public static void main(String[] args) {
+
         //System.out.println("Hello world!");
         RandomThrow first = new RandomThrow();
         ArrayList<Integer> positionFirst= new ArrayList<>();
@@ -17,18 +19,23 @@ public class Main {
 //        System.out.println(randomjet.getSecondDice());
 //
 //        System.out.println(sum);
-
-
-        Turn turn = new Turn(one);
-        Turn turnTwo = new Turn(one);
-        turn.changePosition();
+        boolean ongoing = true;
+        int count = 0;
+        while(ongoing) {
+            Turn turn = new Turn(one);
+            turn.changePosition();
+            if(turn.ongoing == false) {
+                ongoing = false;
+            } else {
+                count++;
+            }
+        }
+        System.out.println(count);
 
         Board pos1=new Board();
         pos1.ShowCases();
 
         pos1.showPosition(one.getPosition().getCaseNumber());
-
-        boolean ongoing = true;
 
 //        while(ongoing) {
 ////            Game game = new Game();
