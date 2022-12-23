@@ -19,6 +19,7 @@ public class Turn {
         } else if (cell > lastCell) {
             cell = lastCell - (cell - lastCell);
         }
+        cell = cell + new CellManager().scanCell(cell, randomThrow);
         player.setBoardCell(cell);
         displayDestinationCell(cell);
     }
