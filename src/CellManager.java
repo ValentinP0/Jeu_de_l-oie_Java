@@ -42,10 +42,12 @@ public class CellManager {
             return 30;
         }
         else if(isOnSkull(cell)){
-                return 0;
+            System.out.println("Vous recomencez la partie");
+                return 1;
         }
 
-        else
-        {return 0;}
+        else {
+            return 0;
+        }
     }
 }
