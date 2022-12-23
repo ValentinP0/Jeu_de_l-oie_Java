@@ -1,39 +1,29 @@
 public class Turn {
     Player player;
-    RandomThrow PlayerThrow;
-    Position position;
-
+    RandomThrow randomThrow;
     boolean ongoing = true;
-
+    int lastCell = 63;
 
     public Turn(Player player) {
         this.player = player;
         throwDice();
     }
-
-    public boolean isOngoing() {
-        return ongoing;
-    }
-
     public void throwDice() {
-        this.PlayerThrow = new RandomThrow();
+        randomThrow = new RandomThrow();
     }
-
-    public void changePosition() {
-       int casePosition = player.getPosition().getCaseNumber() + PlayerThrow.getSumOfDices();
-       if(casePosition > 63) {
-           casePosition = 63 - (casePosition - 63);
-           this.player.setPosition(new Position(casePosition));
-           System.out.println(casePosition);
-       } else if(casePosition == 63) {
-           this.ongoing = false;
-           this.player.setPosition(new Position(casePosition));
-           System.out.println(casePosition);
-           System.out.println("You Won !");
-       } else {
-           this.player.setPosition(new Position(casePosition));
-           System.out.println(casePosition);
-       }
+    public void changeCell() {
+        player.incrementTurn();
+        int cell = player.getBoardCell() + randomThrow.getSumOfDices();
+        if (cell == lastCell) {
+            ongoing = false;
+        } else if (cell > lastCell) {
+            cell = lastCell - (cell - lastCell);
+        }
+        cell = cell + new CellManager().scanCell(cell, randomThrow);
+        player.setBoardCell(cell);
+        displayDestinationCell(cell);
     }
-
+    public void displayDestinationCell(int casePosition) {
+        System.out.printf("Tour %d: %s arrive à la case n°%d%n", player.getTurn(), player.getName(), casePosition);
+    }
 }
