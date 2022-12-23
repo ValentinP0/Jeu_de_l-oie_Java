@@ -24,16 +24,16 @@ public class Ruler {
         if (cellManager.isOnHostel(cell))
         {
             playerCanPlay.add(index,false);
-            penalties.add(index,2);
+            penalties.set(index,2);
         }
         else if(cellManager.isOnPrison(cell)){
             playerCanPlay.add(index,false);
-            penalties.add(index,10);
+            penalties.set(index,10);
 
         }
         else if(cellManager.isOnWell(cell)){
             playerCanPlay.add(index,false);
-            penalties.add(index,10);
+            penalties.set(index,10);
         }
 
 
