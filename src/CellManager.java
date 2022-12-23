@@ -33,21 +33,20 @@ public class CellManager {
         return (caseNumber==skull);
     }
 
-    public int scanCell(int cell, RandomThrow randomThrow) {
+    public int scanCell(int cell, RandomThrow randomThrow, String playerName) {
         if (isOnGoose(cell)) {
-            System.out.println("Vous êtez sur une oie!!! " + cell);
-            return randomThrow.getSumOfDices();
+            System.out.println(playerName + " est sur une oie!!! " + cell);
+            return cell + randomThrow.getSumOfDices();
         } else if(isOnLabyrinth(cell)) {
-            System.out.println("Vous êtes tombés dans le labyrinthe");
+            System.out.println(playerName+ " est tombé dans le labyrinthe");
             return 30;
         }
         else if(isOnSkull(cell)){
-            System.out.println("Vous recomencez la partie");
-                return 1;
+            System.out.println(playerName + " est sur Case " + cell + " ! Vous recomencez la partie");
+            return 1;
         }
-
         else {
-            return 0;
+            return cell;
         }
     }
 }

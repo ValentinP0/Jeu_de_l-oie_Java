@@ -19,12 +19,12 @@ public class Turn {
         } else if (cell > lastCell) {
             cell = lastCell - (cell - lastCell);
         }
-        cell = cell + new CellManager().scanCell(cell, randomThrow);
+        cell = new CellManager().scanCell(cell, randomThrow, player.getName());
         player.setBoardCell(cell);
         displayDestinationCell(cell);
     }
     public void displayDestinationCell(int casePosition) {
-        System.out.printf("Tour %d: %s arrive à la case n°%d%n", player.getTurn(), player.getName(), casePosition);
+        System.out.printf("%s arrive à la case n°%d (%d,%d) %n", player.getName(), casePosition, randomThrow.getFirstDice(), randomThrow.getSecondDice());
     }
     public void firstChangeCell(){
         player.incrementTurn();

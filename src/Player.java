@@ -3,10 +3,13 @@ public class Player {
     private int boardCell;
     private int turn;
 
-    public Player(String name) {
+    private char symbol;
+
+    public Player(String name, char symbol) {
         this.name = name;
         this.boardCell = 0;
         this.turn = 0;
+        this.symbol = symbol;
     }
 
     public void incrementTurn() {
@@ -24,5 +27,9 @@ public class Player {
 
     public int getTurn() {
         return this.turn;
+    }
+
+    public char getSymbol() {
+        return symbol;
     }
 }
