@@ -1,34 +1,23 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
-        //System.out.println("Hello world!");
-        RandomThrow first = new RandomThrow();
-        ArrayList<Integer> positionFirst= new ArrayList<>();
-        Player one= new Player(0,"Toto",true,positionFirst);
-        ArrayList<Integer> hist= one.history;
-        System.out.println(hist);
 
-        RandomThrow randomjet= new RandomThrow();
-        int jet1= randomjet.generate();
-        int jet2 =randomjet.generate();
-        int sum= randomjet.sum();
-        System.out.println(randomjet.getFirstDice());
-        System.out.println(randomjet.getSecondDice());
-
-        System.out.println(sum);
-
-
-        Board pos1=new Board();
-        pos1.ShowCases();
-
-        pos1.showPosition(randomjet.getSumOfDices());
-
+        Player one = new Player("Toto");
         boolean ongoing = true;
+        int count = 0;
+        Board gameBoard = new Board();
 
         while(ongoing) {
-            Game game = new Game();
+            count++;
+            Turn turn = new Turn(one);
+            turn.changeCell();
+            gameBoard.ShowCases();
+            gameBoard.showPosition(one.getBoardCell());
+            if(!turn.ongoing) {
+                ongoing = false;
+                System.out.println("You Won !");
+            }
         }
+        System.out.println(count);
 
     }
 }
