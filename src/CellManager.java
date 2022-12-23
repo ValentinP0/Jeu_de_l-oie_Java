@@ -5,11 +5,11 @@ public class CellManager {
     int hostel = 19;
     int prison = 52;
     int skull = 58;
+    Ruler ruler;
     public boolean isOnGoose(int caseNumber){
         boolean test=false;
         for (int i=0;i<6;i++){
             if (geese[i]==caseNumber){
-
                 test=true;
             }
         }
@@ -42,7 +42,7 @@ public class CellManager {
             return 30;
         }
         else if(isOnSkull(cell)){
-            System.out.println(playerName + " est sur Case " + cell + " ! Vous recomencez la partie");
+            System.out.println(playerName + " est arrivé sur la case " + cell + " ! Vous recomencez la partie");
             return 1;
         }
         else {
