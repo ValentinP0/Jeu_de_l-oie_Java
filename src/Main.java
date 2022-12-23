@@ -8,15 +8,25 @@ public class Main {
         Board gameBoard = new Board();
 
         while(ongoing) {
-            count++;
+
             Turn turn = new Turn(one);
-            turn.changeCell();
-            gameBoard.ShowCases();
-            gameBoard.showPosition(one.getBoardCell());
+            if (one.getBoardCell()==0){
+                System.out.println("tour initial");
+                turn.firstChangeCell();
+
+
+            }
+            else {
+                turn.changeCell();
+            }
+                gameBoard.ShowCases();
+                gameBoard.showPosition(one.getBoardCell());
             if(!turn.ongoing) {
                 ongoing = false;
                 System.out.println("You Won !");
             }
+            count++;
+
         }
         System.out.println(count);
 

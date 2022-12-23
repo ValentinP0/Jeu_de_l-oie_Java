@@ -9,7 +9,7 @@ public class CellManager {
         boolean test=false;
         for (int i=0;i<6;i++){
             if (geese[i]==caseNumber){
-                System.out.println("Vous êtez sur une oie!!! " + caseNumber);
+
                 test=true;
             }
         }
@@ -17,6 +17,7 @@ public class CellManager {
 
     }
     public boolean isOnLabyrinth(int caseNumber){
+
         return (caseNumber==labyrinth);
     }
     public boolean isOnWell(int caseNumber){
@@ -34,9 +35,17 @@ public class CellManager {
 
     public int scanCell(int cell, RandomThrow randomThrow) {
         if (isOnGoose(cell)) {
+            System.out.println("Vous êtez sur une oie!!! " + cell);
             return randomThrow.getSumOfDices();
-        } else {
-            return 0;
+        } else if(isOnLabyrinth(cell)) {
+            System.out.println("Vous êtes tombés dans le labyrinthe");
+            return 30;
         }
+        else if(isOnSkull(cell)){
+                return 0;
+        }
+
+        else
+        {return 0;}
     }
 }
